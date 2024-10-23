@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Boeken</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylecss/style.css">
+    <style>
+        /* CSS styles */
+        .booking-summary-container {
+            padding: 10px;
+            border-radius: 15px;
+            background-color: rgb(245, 241, 241);
+        }
+
+        .booking-form {
+            margin-bottom: 20px;
+        }
+
+        .lesson {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            background-color: #c00;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #900;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="stylecss/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg header">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images-1000/logo.png" alt="Sport Gym Club - Let your body ROC!" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vestigingen.html">Vestigingen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link highlight" href="les-boeken.html">Les boeken</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fotogallery.html">Fotogallery</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Include Bootstrap JS (Optional if using Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<!-- Booking form -->
+<div class="container">
+    <div class="booking-summary-container">
+        <h2>Reserveer les</h2>
+        <form id="booking-form" class="booking-form">
+            <label for="name">Naam:</label>
+            <input type="text" id="name" maxlength="30" required><br><br>
+
+            <label for="klantnummer">Klantnummer:</label>
+            <input type="text" id="klantnummer" required><br><br>
+
+            <label for="phone">Telefoonnummer:</label>
+            <input type="tel" id="phone" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br><br>
+
+            <label for="lesson">Lessoort:</label>
+            <select id="lesson">
+                <option value="conditietraining">Algemene conditietraining</option>
+                <option value="bodybuilding">Body building</option>
+                <option value="Bodypump">Body pump</option>
+                <option value="Boksen">Boksen</option>
+                <option value="Hardlopen">Hardlopen</option>
+                <option value="Spinning">Spinning</option>
+                <option value="Yoga">Yoga</option>
+            </select><br><br>
+
+            <label for="date">Datum:</label>
+            <input type="date" id="date" required><br><br>
+
+            <label for="time">Tijdstip:</label>
+            <select id="time">
+                <option value="08:00-09:00">08:00 - 09:00u</option>
+                <option value="09:00-10:00">09:00 - 10:00u</option>
+                <option value="10:00-11:00">10:00 - 11:00u</option>
+                <option value="12:00-13:00">12:00 - 13:00u</option>
+                <option value="13:00-14:00">13:00 - 14:00u</option>
+                <option value="14:00-15:00">14:00 - 15:00u</option>
+                <option value="15:00-16:00">15:00 - 16:00u</option>
+                <option value="16:00-17:00">16:00 - 17:00u</option>
+                <option value="17:00-18:00">17:00 - 18:00u</option>
+                <option value="18:00-19:00">18:00 - 19:00u</option>
+                <option value="19:00-20:00">19:00 - 20:00u</option>
+                <option value="20:00-21:00">20:00 - 21:00u</option>
+                <option value="21:00-22:00">21:00 - 22:00u</option>
+                <option value="22:00-23:00">22:00 - 23:00u</option>
+            </select><br><br>
+
+            <button type="button" class="button" onclick="addReservation()">Reserveer</button>
+        </form>
+    </div>
+
+    <!-- Reservation summary -->
+    <div class="booking-summary-container">
+        <h2>Reserverings overzicht</h2>
+        <div id="reservation-summary">
+            <p><strong>Jouw gegevens:</strong></p>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function addReservation() {
+        // Get form inputs
+        var name = document.getElementById("name").value;
+        var klantnummer = document.getElementById("klantnummer").value;
+        var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+        var lesson = document.getElementById("lesson").value;
+        var date = document.getElementById("date").value;
+        var time = document.getElementById("time").value;
+
+        // Create reservation summary content
+        var reservationContent = "<p><strong>Jouw gegevens:</strong></p>";
+        reservationContent += "<p>Klantnummer: " + klantnummer + "</p>";
+        reservationContent += "<p>Telefoonnummer: " + phone + "</p>";
+        reservationContent += "<p>Email: " + email + "</p>";
+        reservationContent += "<p><strong>Les:</strong> " + lesson + "</p>";
+        reservationContent += "<p><strong>Datum:</strong> " + date + "</p>";
+        reservationContent += "<p><strong>Tijdstip:</strong> " + time + "</p>";
+
+        // Get reservation summary element
+        var reservationSummary = document.getElementById("reservation-summary");
+
+        // Clear existing content
+        reservationSummary.innerHTML = "";
+
+        // Append the new reservation content to the existing content
+        reservationSummary.innerHTML += reservationContent;
+    }
+</script>
+
+</body>
+</html>
