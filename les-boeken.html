@@ -138,14 +138,26 @@
         var date = document.getElementById("date").value;
         var time = document.getElementById("time").value;
 
+        // Calculate price based on time
+        var standaardPrijs = 10.0;
+        var uren = parseInt(time.split(":")[0]);
+
+        // Apply 30% discount between 11:00 and 16:00
+        if (uren >= 11 && uren < 16) {
+            var prijs = standaardPrijs * 0.7;
+        } else {
+            var prijs = standaardPrijs;
+        }
+
         // Create reservation summary content
         var reservationContent = "";
         reservationContent += "<p><span class='fw-bold'>Klantnummer: </span>" + klantnummer + "</p>";
         reservationContent += "<p><span class='fw-bold'>Telefoonnummer: </span>" + phone + "</p>";
         reservationContent += "<p><span class='fw-bold'>Email: </span>" + email + "</p>";
-        reservationContent += "<p><span class='fw-bold'>Les:</span> " + lesson + "</p>";
-        reservationContent += "<p><span class='fw-bold'>Datum:</span> " + date + "</p>";
-        reservationContent += "<p><span class='fw-bold'>Tijdstip:</span> " + time + "</p>";
+        reservationContent += "<p><span class='fw-bold'>Les: </span>" + lesson + "</p>";
+        reservationContent += "<p><span class='fw-bold'>Datum: </span>" + date + "</p>";
+        reservationContent += "<p><span class='fw-bold'>Tijdstip: </span>" + time + "</p>";
+        reservationContent += "<p><span class='fw-bold'>Prijs: </span> $" + prijs.toFixed(2) + "</p>";
 
         // Get reservation summary element
         var reservationSummary = document.getElementById("reservation-summary");
